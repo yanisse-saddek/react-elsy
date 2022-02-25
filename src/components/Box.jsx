@@ -6,15 +6,10 @@ export class Box extends React.Component{
         this.inputRangeFunc = this.inputRangeFunc.bind(this)
     }
     inputRangeFunc = ()=>{
-        if(this.props.icon == "favorite"){
-            return <input name="heart" type="range" min={this.props.min} max={this.props.max} value={this.props.valeur} onInput={this.props.onChange}></input>
-        }
-        if(this.props.icon == "directions_walk"){
-            return <input step="1000" name="directions_walk" type="range" min={this.props.min} max={this.props.max} value={this.props.valeur} onInput={this.props.onChange}></input>
-        }
-        if(this.props.icon == "wb_sunny"){
-            return <input name="temperature" type="range" min={this.props.min} max={this.props.max} value={this.props.valeur} onInput={this.props.onChange}></input>
-        }
+    if(this.props.name !== "water"){
+        return <input step={this.props.name === "steps"? 1000: null}  name={this.props.name} type="range" min={this.props.min} max={this.props.max} value={this.props.valeur} onInput={this.props.onChange}></input>
+    }
+
     }
     render(){
         return(

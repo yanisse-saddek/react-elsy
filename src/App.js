@@ -51,22 +51,13 @@ class App extends React.Component{
   changeValues = (e)=>{
     var newValue = e.target.value
     var icon = e.target.name
-    if(icon === "heart"){
+    // if(icon === "heart"){
       this.setState({
-        heart: newValue
+        [icon]: newValue
       })       
-    }
-    else if(icon === "directions_walk"){
-      this.setState({
-        steps: newValue
-      }) 
-      
-  }
-  else if(icon === "temperature"){
-    this.setState({
-      temperature: newValue
-    })        
-}
+    // }
+
+
 this.calculateWater()
 }
 
@@ -74,10 +65,10 @@ this.calculateWater()
     return (
       <div className="container-fluid">
         <div className="row">
-            <Box valeur={this.state.water} icon="local_drink" color="#3A85FF" value="1.5" unit="L"/>
-            <Box min={stepsMin} max={stepsMax} onChange={this.changeValues} valeur={this.state.steps} icon="directions_walk" color="black" value="3000" unit="steps"/>
-            <Box min={heartMin} max={heartMax} onChange={this.changeValues} valeur={this.state.heart} icon="favorite" color="red" value="120" unit="bpm"/>
-            <Box min={tempMin} max={tempMax} onChange={this.changeValues} valeur={this.state.temperature} icon="wb_sunny" color="yellow" value="-10" unit="°C"/>
+            <Box name="water" valeur={this.state.water} icon="local_drink" color="#3A85FF" value="1.5" unit="L"/>
+            <Box name="steps" min={stepsMin} max={stepsMax} onChange={this.changeValues} valeur={this.state.steps} icon="directions_walk" color="black" value="3000" unit="steps"/>
+            <Box name="heart" min={heartMin} max={heartMax} onChange={this.changeValues} valeur={this.state.heart} icon="favorite" color="red" value="120" unit="bpm"/>
+            <Box name="temperature" min={tempMin} max={tempMax} onChange={this.changeValues} valeur={this.state.temperature} icon="wb_sunny" color="yellow" value="-10" unit="°C"/>
         </div>
       </div>
     );
